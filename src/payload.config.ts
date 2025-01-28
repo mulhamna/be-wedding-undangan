@@ -10,6 +10,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Reservation } from './collections/reservation'
+import { HomeMedia } from './globals/Home'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,6 +24,7 @@ export default buildConfig({
   },
   cors: '*',
   collections: [Users, Media, Reservation],
+  globals: [HomeMedia],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

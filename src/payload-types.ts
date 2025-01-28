@@ -30,8 +30,12 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'page-media': PageMedia;
+  };
+  globalsSelect: {
+    'page-media': PageMediaSelect<false> | PageMediaSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -243,6 +247,150 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page-media".
+ */
+export interface PageMedia {
+  id: number;
+  desktop: {
+    bacground: number | Media;
+    header: number | Media;
+    footer: number | Media;
+  };
+  opening: {
+    bacground: number | Media;
+    header: number | Media;
+    footer: number | Media;
+  };
+  pageone: {
+    bacground: number | Media;
+    header: number | Media;
+    bgtext: number | Media;
+  };
+  pagetwo: {
+    bacground: number | Media;
+    header: number | Media;
+    male: number | Media;
+    female: number | Media;
+    footer: number | Media;
+  };
+  pagethree: {
+    bacground: number | Media;
+    header: number | Media;
+    bgtext: number | Media;
+    footer: number | Media;
+  };
+  pagetfour: {
+    bacground: number | Media;
+    header: number | Media;
+    footer: number | Media;
+  };
+  pagefive: {
+    bacground: number | Media;
+    header: number | Media;
+    glimpseofus?:
+      | {
+          image: number | Media;
+          id?: string | null;
+        }[]
+      | null;
+    footer: number | Media;
+  };
+  pagesix: {
+    bacground: number | Media;
+    header: number | Media;
+    footer: number | Media;
+  };
+  pageseven: {
+    bacground: number | Media;
+    header: number | Media;
+    footer: number | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page-media_select".
+ */
+export interface PageMediaSelect<T extends boolean = true> {
+  desktop?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        footer?: T;
+      };
+  opening?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        footer?: T;
+      };
+  pageone?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        bgtext?: T;
+      };
+  pagetwo?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        male?: T;
+        female?: T;
+        footer?: T;
+      };
+  pagethree?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        bgtext?: T;
+        footer?: T;
+      };
+  pagetfour?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        footer?: T;
+      };
+  pagefive?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        glimpseofus?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+        footer?: T;
+      };
+  pagesix?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        footer?: T;
+      };
+  pageseven?:
+    | T
+    | {
+        bacground?: T;
+        header?: T;
+        footer?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
